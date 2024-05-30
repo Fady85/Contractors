@@ -4,7 +4,9 @@ app_publisher = "cltd"
 app_description = "contractor app"
 app_email = "mail@cltd.com"
 app_license = "MIT"
-
+fixtures = [
+    "Custom Field"
+]
 # Includes in <head>
 # ------------------
 
@@ -108,10 +110,13 @@ app_license = "MIT"
 # ---------------
 # Override standard doctype classes
 
-# override_doctype_class = {
-# 	"ToDo": "custom_app.overrides.CustomToDo"
-# }
+override_doctype_class = {
+	"Payment Entry": "contractor.overrides.custom_payment_entry.CustomPaymentEntry"
+};
 
+doctype_js = {
+    "Supplier": "public/js/custom_supplier.js",
+}
 # Document Events
 # ---------------
 # Hook on document methods and events

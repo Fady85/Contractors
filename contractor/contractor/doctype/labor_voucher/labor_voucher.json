@@ -1,0 +1,560 @@
+{
+ "actions": [],
+ "allow_auto_repeat": 1,
+ "allow_import": 1,
+ "autoname": "naming_series:",
+ "creation": "2024-05-19 17:23:25.018235",
+ "default_view": "List",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "engine": "InnoDB",
+ "field_order": [
+  "contractor_section",
+  "title",
+  "company",
+  "naming_series",
+  "voucher_number",
+  "transaction_date",
+  "column_break_7",
+  "laborer",
+  "laborer_name",
+  "is_master",
+  "accounting_dimensions_section",
+  "cost_center",
+  "dimension_col_break",
+  "project",
+  "period_section",
+  "from_date",
+  "column_break_cewbl",
+  "to_date",
+  "voucher",
+  "prev_working_days",
+  "current_working_days",
+  "accumulated_working_days",
+  "column_break_quqzg",
+  "prev_daily_rate",
+  "current_daily_rate",
+  "column_break_5ywqz",
+  "prev_days_amount",
+  "current_days_amount",
+  "transportation_section",
+  "transportation_days",
+  "transportation_fixed_amount",
+  "prev_transportation_amount",
+  "column_break_lsrsk",
+  "transportation_rate",
+  "column_break_sg4tn",
+  "transportation_days_amount",
+  "transportation_total_amount",
+  "bonus_section",
+  "bonus_hours",
+  "bonus_fixed_amount",
+  "prev_bonus_amount",
+  "column_break_tcqvt",
+  "hour_rate",
+  "bonus_description",
+  "column_break_vekkl",
+  "bonus_hours_amount",
+  "bonus_total_amount",
+  "totals_section",
+  "prev_voucher_amount",
+  "total_vouchers_amount",
+  "due_amount",
+  "column_break_ctxki",
+  "current_voucher_amount",
+  "total_payments",
+  "payments_tab",
+  "total_payments_section",
+  "payments_section",
+  "labor_payments_list",
+  "accounting_data_tab",
+  "invoice_status_section",
+  "status",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "contractor_section",
+   "fieldtype": "Section Break",
+   "options": "fa fa-user"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "{contractor_name}",
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Title",
+   "no_copy": 1,
+   "print_hide": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "no_copy": 1,
+   "oldfieldname": "naming_series",
+   "oldfieldtype": "Select",
+   "options": "ACC-LVOU-.YYYY.-",
+   "print_hide": 1,
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "voucher_number",
+   "fieldtype": "Int",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "label": "Voucher Number",
+   "read_only": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "transaction_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Date",
+   "oldfieldname": "transaction_date",
+   "oldfieldtype": "Date",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "bold": 1,
+   "fieldname": "laborer",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "in_global_search": 1,
+   "in_standard_filter": 1,
+   "label": "Laborer",
+   "oldfieldname": "supplier",
+   "oldfieldtype": "Link",
+   "options": "Employee",
+   "print_hide": 1,
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "is_master",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "in_filter": 1,
+   "in_standard_filter": 1,
+   "label": "Is Master",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "accounting_dimensions_section",
+   "fieldtype": "Section Break",
+   "label": "Accounting Dimensions "
+  },
+  {
+   "fieldname": "cost_center",
+   "fieldtype": "Link",
+   "label": "Cost Center",
+   "options": "Cost Center",
+   "reqd": 1
+  },
+  {
+   "fieldname": "dimension_col_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "in_global_search": 1,
+   "in_standard_filter": 1,
+   "label": "Project",
+   "options": "Project",
+   "reqd": 1
+  },
+  {
+   "fieldname": "payments_tab",
+   "fieldtype": "Tab Break",
+   "label": "Payments"
+  },
+  {
+   "fieldname": "total_payments_section",
+   "fieldtype": "Section Break",
+   "label": "Total Payments"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "total_payments",
+   "fieldtype": "Currency",
+   "label": "Total Payments",
+   "options": "Company:company:default_currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payments_section",
+   "fieldtype": "Section Break",
+   "label": "Payments"
+  },
+  {
+   "fieldname": "accounting_data_tab",
+   "fieldtype": "Tab Break",
+   "label": "Additional Info"
+  },
+  {
+   "fieldname": "invoice_status_section",
+   "fieldtype": "Section Break",
+   "label": "Invoice Status"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_filter": 1,
+   "in_global_search": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "\nDraft\nSubmitted\nCanceled",
+   "print_hide": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Labor Voucher",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "period_section",
+   "fieldtype": "Section Break",
+   "label": "Period"
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_cewbl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "voucher",
+   "fieldtype": "Section Break",
+   "label": "Voucher"
+  },
+  {
+   "default": "0",
+   "fieldname": "prev_working_days",
+   "fieldtype": "Float",
+   "label": "Prev Working Days",
+   "precision": "1",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_quqzg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "current_working_days",
+   "fieldtype": "Float",
+   "label": "Current Working Days",
+   "precision": "1",
+   "reqd": 1
+  },
+  {
+   "fieldname": "transportation_section",
+   "fieldtype": "Section Break",
+   "label": "Transportation"
+  },
+  {
+   "fieldname": "transportation_rate",
+   "fieldtype": "Currency",
+   "label": "Transportation Rate",
+   "options": "Company:company:default_currency"
+  },
+  {
+   "default": "0",
+   "fieldname": "transportation_total_amount",
+   "fieldtype": "Currency",
+   "label": "Transportation Total Amount",
+   "options": "Company:company:default_currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_lsrsk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "transportation_fixed_amount",
+   "fieldtype": "Currency",
+   "label": "Transportation Fixed Amount",
+   "options": "Company:company:default_currency"
+  },
+  {
+   "fieldname": "bonus_section",
+   "fieldtype": "Section Break",
+   "label": "Bonus"
+  },
+  {
+   "fieldname": "bonus_hours",
+   "fieldtype": "Float",
+   "label": "Bonus Hours",
+   "precision": "1"
+  },
+  {
+   "fieldname": "bonus_fixed_amount",
+   "fieldtype": "Currency",
+   "label": "Bonus Fixed Amount",
+   "options": "Company:company:default_currency"
+  },
+  {
+   "fieldname": "hour_rate",
+   "fieldtype": "Currency",
+   "label": "Hour Rate",
+   "options": "Company:company:default_currency"
+  },
+  {
+   "fieldname": "column_break_tcqvt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bonus_description",
+   "fieldtype": "Data",
+   "label": "Bonus Description"
+  },
+  {
+   "default": "0",
+   "fieldname": "bonus_total_amount",
+   "fieldtype": "Currency",
+   "label": "Bonus Total Amount",
+   "options": "Company:company:default_currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_vekkl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "bonus_hours_amount",
+   "fieldtype": "Currency",
+   "label": "Bonus Hours Amount",
+   "options": "Company:company:default_currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "totals_section",
+   "fieldtype": "Section Break",
+   "label": "Totals"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "due_amount",
+   "fieldtype": "Currency",
+   "label": "Due Amount",
+   "options": "Company:company:default_currency",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "prev_voucher_amount",
+   "fieldtype": "Currency",
+   "label": "Prev Vouchers Amount",
+   "options": "Company:company:default_currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_ctxki",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "current_voucher_amount",
+   "fieldtype": "Currency",
+   "label": "Current Voucher Amount",
+   "options": "Company:company:default_currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "transportation_days",
+   "fieldtype": "Float",
+   "label": "Transportation Days",
+   "precision": "1"
+  },
+  {
+   "fieldname": "column_break_sg4tn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "transportation_days_amount",
+   "fieldtype": "Currency",
+   "label": "Transportation Days Amount",
+   "options": "Company:company:default_currency",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_vouchers_amount",
+   "fieldtype": "Currency",
+   "label": "Total Vouchers Amount",
+   "options": "Company:company:default_currency",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "prev_days_amount",
+   "fieldtype": "Currency",
+   "label": "Prev Days Amount",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "current_days_amount",
+   "fieldtype": "Currency",
+   "label": "Current Days Amount",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "prev_daily_rate",
+   "fieldtype": "Currency",
+   "label": "Prev Daily Rate",
+   "options": "Company:company:default_currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "current_daily_rate",
+   "fieldtype": "Currency",
+   "label": "Current Daily Rate",
+   "options": "Company:company:default_currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_5ywqz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "prev_transportation_amount",
+   "fieldtype": "Currency",
+   "label": "Prev Transportation Amount",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "prev_bonus_amount",
+   "fieldtype": "Currency",
+   "label": "Prev Bonus Amount",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "labor_payments_list",
+   "fieldtype": "Table",
+   "label": "Labor Payments List",
+   "options": "Labor Payments",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Company",
+   "options": "Company",
+   "print_hide": 1
+  },
+  {
+   "depends_on": "laborer",
+   "fieldname": "laborer_name",
+   "fieldtype": "Data",
+   "label": "Laborer Name",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "accumulated_working_days",
+   "fieldtype": "Float",
+   "label": "Accumulated Working Days",
+   "precision": "1",
+   "read_only": 1
+  }
+ ],
+ "icon": "fa fa-file-text",
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-05-27 09:59:11.053510",
+ "modified_by": "Administrator",
+ "module": "Contractor",
+ "name": "Labor Voucher",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "read": 1,
+   "report": 1,
+   "role": "Stock User"
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Purchase Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Purchase User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "permlevel": 1,
+   "read": 1,
+   "role": "Purchase Manager",
+   "write": 1
+  }
+ ],
+ "search_fields": "project",
+ "show_name_in_global_search": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "timeline_field": "laborer",
+ "title_field": "laborer",
+ "track_changes": 1
+}

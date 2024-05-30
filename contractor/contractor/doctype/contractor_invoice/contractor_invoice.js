@@ -89,7 +89,7 @@ frappe.ui.form.on("Contractor Invoice", {
     frm.set_query("contractor", () => {
       return {
         filters: {
-          custom_is_contractor: 1,
+          is_contractor: 1,
         },
       };
     });
@@ -395,6 +395,16 @@ frappe.ui.form.on("Contractor Invoice", {
   },
   total_payments(frm) {
     frm.set_value("due_amount", frm.doc.net_total - frm.doc.total_payments);
+  },
+  grand_total(frm) {
+    frm.set_value(
+      "insurance_percentage_amount",
+      frm.doc.grand_total * (frm.doc.insurance_percentage / 100)
+    );
+    frm.set_value(
+      "discount_percentage_amount",
+      frm.doc.grand_total * (frm.doc.discount_percentage / 100)
+    );
   },
   // end primary caculations
 });

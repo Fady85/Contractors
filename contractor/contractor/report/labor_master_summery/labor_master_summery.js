@@ -2,15 +2,15 @@
 // For license information, please see license.txt
 /* eslint-disable */
 
-frappe.query_reports["Contractor Master Summery"] = {
+frappe.query_reports["Labor Master Summery"] = {
   filters: [
     {
-      fieldname: "contractor",
-      label: __("Contractor"),
+      fieldname: "laborer",
+      label: __("Laborer"),
       fieldtype: "MultiSelectList",
       get_data: function (txt) {
-        return frappe.db.get_link_options("Supplier", txt, {
-          is_contractor: 1,
+        return frappe.db.get_link_options("Employee", txt, {
+          is_laborer: 1,
         });
       },
     },
@@ -23,19 +23,10 @@ frappe.query_reports["Contractor Master Summery"] = {
       },
     },
     {
-      fieldname: "contractor_group",
-      label: __("Contractor Group"),
-      fieldtype: "MultiSelectList",
-      get_data: function (txt) {
-        return frappe.db.get_link_options("Supplier Group", txt);
-      },
-    },
-    {
       fieldname: "is_master",
       label: __("Is Master"),
       fieldtype: "Check",
       default: 1,
-      // "default": frappe.datetime.now_date(),
     },
   ],
 };

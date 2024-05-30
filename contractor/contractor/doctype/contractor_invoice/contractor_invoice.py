@@ -54,7 +54,7 @@ class ContractorInvoice(Document):
 	@frappe.whitelist()
 	def get_contractorGroup_workAccount(self):
 		contractorGroup = frappe.db.get_value('Supplier', self.contractor, 'supplier_group');
-		workAccount = frappe.db.get_value('Supplier', self.contractor, 'custom_work_account');
+		workAccount = frappe.db.get_value('Supplier', self.contractor, 'work_account');
 		self.contractor_group = contractorGroup;
 		self.work_account = workAccount;
 		return ;
@@ -166,6 +166,7 @@ class ContractorInvoice(Document):
 		create_gl_entry()
 
 	def before_cancel(self):
+
 		# frappe.db.delete("Invoice Item")
 		# frappe.throw(str(frappe.db.get_value('Company', self.company, 'default_currency')))
   		# frappe.throw(str(frappe.db.get_list("Invoice Item", fields="*")))
@@ -179,10 +180,10 @@ class ContractorInvoice(Document):
 
 		if self.invoice_number != 1:
 			lastNotCanceledDoc = frappe.get_last_doc('Contractor Invoice', filters={
-			"contractor":self.contractor,
-			"project": self.project,
-			"invoice_number": self.invoice_number - 1,
-			"docstatus": 1
+				"contractor":self.contractor,
+				"project": self.project,
+				"invoice_number": self.invoice_number - 1,
+				"docstatus": 1
 			}, order_by="invoice_number desc");
 			lastNotCanceledDoc.is_master = 1;
 			lastNotCanceledDoc.save();
