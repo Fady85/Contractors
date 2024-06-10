@@ -80,7 +80,7 @@ def get_columns():
 			'fieldname': 'current_working_days',
 			'label': _('Working Days'),
 			'fieldtype': 'Float',
-			'Precision':1,
+			'precision': 1,
 			'width': '150'
 		},
 		{

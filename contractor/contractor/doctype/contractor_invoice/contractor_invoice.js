@@ -2,6 +2,22 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on("Contractor Invoice", {
+  before_load(frm) {
+    frm.call({
+      doc: frm.doc,
+      method: "set_contracting_account",
+      freeze: true,
+      callback: (response) => {
+        if (response.message) {
+          frm.set_value("contractor_account", response.message);
+        } else {
+          frappe.throw(
+            "please set contracting account in contracting settings page"
+          );
+        }
+      },
+    });
+  },
   refresh(frm) {
     if (frm.doc.docstatus > 0) {
       frm.add_custom_button(

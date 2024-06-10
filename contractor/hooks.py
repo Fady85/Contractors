@@ -116,6 +116,7 @@ override_doctype_class = {
 
 doctype_js = {
     "Supplier": "public/js/custom_supplier.js",
+    "Journal Entry": "public/js/custom_journal_entry.js",
 }
 # Document Events
 # ---------------

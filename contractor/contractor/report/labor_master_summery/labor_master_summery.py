@@ -65,6 +65,7 @@ def get_columns():
 			'fieldname': 'accumulated_working_days',
 			'label': _('Acc Working Days'),
 			'fieldtype': 'Float',
+			'precision': 1,
 			'width': '150'
 		},
 		{

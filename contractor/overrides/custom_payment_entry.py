@@ -52,7 +52,7 @@ class CustomPaymentEntry(PaymentEntry):
 				invoiceDoc.due_amount = invoiceDoc.due_amount - self.paid_amount;
 				invoiceDoc.save(ignore_permissions=True);
 			except Exception as err:
-				frappe.throw(str(err))
+
 				print(f"message: {err}")
 				None;
 	def before_cancel(self):
@@ -73,12 +73,12 @@ class CustomPaymentEntry(PaymentEntry):
 					"currency" : self.paid_from_account_currency,
 				});
 				invoiceDoc.total_payments = invoiceDoc.total_payments - self.paid_amount;
-				invoiceDoc.due_amount = invoiceDoc.due_amount + self.paid_amount;
+				invoiceDoc.due_amount = invoiceDoc.due_amount - self.paid_amount;
 				invoiceDoc.save(ignore_permissions=True);
 			except:
 				None;
 		elif(self.party_type == "Employee"):	
-			try:	
+			try:
 				invoiceDoc = frappe.get_last_doc('Labor Voucher', filters={
 						"laborer": self.party,
 						"project": self.project,

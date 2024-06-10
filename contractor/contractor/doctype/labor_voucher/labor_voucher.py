@@ -36,7 +36,13 @@ class LaborVoucher(Document):
 		laborer_data = frappe.db.get_value('Employee', str(self.laborer), 'employee_name')
 		self.laborer_name = laborer_data
 		return
-
+	# @frappe.whitelist()
+	# def entry_account(self):
+	# 	try:
+	# 		laborer_data = frappe.get_doc('Labor Settings');
+	# 		return laborer_data.labor_due_account;
+	# 	except Exception as ex:
+	# 		return
 	@frappe.whitelist()
 	def labor_cost_center(self):
 		# projectDoc = frappe.get_doc("Project", self.project);

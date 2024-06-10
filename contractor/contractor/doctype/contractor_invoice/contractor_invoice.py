@@ -49,7 +49,12 @@ class ContractorInvoice(Document):
 		defaultCurrency = frappe.db.get_value('Company', self.company, 'default_currency');
 		exchangeRate = frappe.db.get_value('Currency Exchange', {'from_currency': self.currency, "to_currency": defaultCurrency}, "exchange_rate")
 		return exchangeRate;
-		
+
+
+	@frappe.whitelist()
+	def set_contracting_account(self):
+		contracting_settings = frappe.get_doc("Contracting Settings")
+		return contracting_settings.contracting_account;
 
 	@frappe.whitelist()
 	def get_contractorGroup_workAccount(self):

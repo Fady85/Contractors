@@ -29,7 +29,36 @@ frappe.ui.form.on("Labor Voucher", {
         },
         "Create"
       );
+      // frm.add_custom_button(
+      //   "Payment",
+      //   function () {
+      //     frm.call({
+      //       doc: frm.doc,
+      //       method: "entry_account",
+      //       freeze: true,
+      //       callback: (response) => {
+      //         if (response.message) {
+      //           const newDoc = frappe.new_doc("Payment Entry", {
+      //             payment_type: "Pay",
+      //             party_type: "Employee",
+      //             party: frm.doc.laborer,
+      //             party_name: frm.doc.laborer,
+      //             paid_to: response.message,
+      //             project: frm.doc.project,
+      //             cost_center: frm.doc.cost_center,
+      //           });
 
+      //           frappe.set_route("Form", newDoc.doctype, newDoc.name);
+      //         } else {
+      //           frappe.throw(
+      //             "please set due account first in labor settings page"
+      //           );
+      //         }
+      //       },
+      //     });
+      //   },
+      //   "Create"
+      // );
       // frm.add_custom_button(
       //   "Payment",
       //   function () {
@@ -101,7 +130,6 @@ frappe.ui.form.on("Labor Voucher", {
               frm.doc.prev_working_days + prevDoc.current_working_days
             );
           } else {
-            console.log(11111);
             frm.set_value("accumulated_working_days", 0);
             frm.set_value("voucher_number", 1);
             frm.set_value("prev_working_days", 0);
@@ -210,6 +238,7 @@ frappe.ui.form.on("Labor Voucher", {
         doc: frm.doc,
         method: "laborer_payments",
         callback: function (response) {
+          console.log(response.message);
           if (response.message.length) {
             frm.clear_table("labor_payments_list");
             response.message.forEach((item) => {

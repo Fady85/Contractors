@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"GpE_hYXaTc\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Contracting</span>\",\"col\":12}},{\"id\":\"7H9HmKSEZH\",\"type\":\"card\",\"data\":{\"card_name\":\"Contract Invoicing\",\"col\":4}},{\"id\":\"0EDwUYhTms\",\"type\":\"card\",\"data\":{\"card_name\":\"Work Reports\",\"col\":4}},{\"id\":\"vXLL4WQORr\",\"type\":\"card\",\"data\":{\"card_name\":\"Labor Reports\",\"col\":4}}]",
+ "content": "[{\"id\":\"GpE_hYXaTc\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Contracting</span>\",\"col\":12}},{\"id\":\"7H9HmKSEZH\",\"type\":\"card\",\"data\":{\"card_name\":\"Contract Invoicing\",\"col\":4}},{\"id\":\"0EDwUYhTms\",\"type\":\"card\",\"data\":{\"card_name\":\"Work Reports\",\"col\":4}},{\"id\":\"vXLL4WQORr\",\"type\":\"card\",\"data\":{\"card_name\":\"Labor Reports\",\"col\":4}},{\"id\":\"vrbKBWOp1H\",\"type\":\"card\",\"data\":{\"card_name\":\"Settings\",\"col\":4}}]",
  "creation": "2024-05-24 22:41:49.666925",
  "custom_blocks": [],
  "docstatus": 0,
@@ -18,6 +18,93 @@
    "label": "Contractor Invoice",
    "link_count": 0,
    "link_to": "Contractor Invoice",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Labor Reports",
+   "link_count": 2,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Labor Summery",
+   "link_count": 0,
+   "link_to": "Labor Summery",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Labor Master Summery",
+   "link_count": 0,
+   "link_to": "Labor Master Summery",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Work Reports",
+   "link_count": 2,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Contractor Summery",
+   "link_count": 0,
+   "link_to": "Contractor Summery",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Contractor Master Summery",
+   "link_count": 0,
+   "link_to": "Contractor Master Summery",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Settings",
+   "link_count": 2,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Contracting Settings",
+   "link_count": 0,
+   "link_to": "Contracting Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Labor Settings",
+   "link_count": 0,
+   "link_to": "Labor Settings",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -54,73 +141,15 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Labor Settings",
+   "label": "Payment Entry",
    "link_count": 0,
-   "link_to": "Labor Settings",
+   "link_to": "Payment Entry",
    "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Work Reports",
-   "link_count": 2,
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Contractor Summery",
-   "link_count": 0,
-   "link_to": "Contractor Summery",
-   "link_type": "Report",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Contractor Master Summery",
-   "link_count": 0,
-   "link_to": "Contractor Master Summery",
-   "link_type": "Report",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Labor Reports",
-   "link_count": 2,
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Labor Summery",
-   "link_count": 0,
-   "link_to": "Labor Summery",
-   "link_type": "Report",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Labor Master Summery",
-   "link_count": 0,
-   "link_to": "Labor Master Summery",
-   "link_type": "Report",
    "onboard": 0,
    "type": "Link"
   }
  ],
- "modified": "2024-05-27 17:43:56.559246",
+ "modified": "2024-06-03 12:45:48.026743",
  "modified_by": "Administrator",
  "module": "Contractor",
  "name": "Contracting",
