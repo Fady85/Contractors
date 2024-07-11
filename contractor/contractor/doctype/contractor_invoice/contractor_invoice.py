@@ -70,7 +70,9 @@ class ContractorInvoice(Document):
 
 	# set Invoice amount value with the diffrence between last doc amount and current one
 	def before_save(self):
-
+		if(self.contractor_group == None):
+			contractorGroup = frappe.db.get_value('Supplier', self.contractor, 'supplier_group');
+			self.contractor_group = contractorGroup;
 		contractorAccountCurrency = frappe.db.get_value('Account', self.contractor_account, 'account_currency');
 		workAccountCurrency = frappe.db.get_value('Account', self.contractor_account, 'account_currency');
 		if(contractorAccountCurrency != self.currency):

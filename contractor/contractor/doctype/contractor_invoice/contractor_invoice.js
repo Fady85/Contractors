@@ -43,7 +43,7 @@ frappe.ui.form.on("Contractor Invoice", {
           newDoc.project = frm.doc.project;
           newDoc.contractor_account = frm.doc.contractor_account;
           newDoc.work_account = frm.doc.work_account;
-          newDoc.supplier_group = frm.doc.supplier_group;
+          newDoc.contractor_group = frm.doc.supplier_group;
           frappe.set_route("Form", newDoc.doctype, newDoc.name);
         },
         "Create"

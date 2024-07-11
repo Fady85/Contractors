@@ -28,5 +28,17 @@ frappe.query_reports["Labor Summery"] = {
       },
       // "default": frappe.datetime.now_date(),
     },
+    {
+      fieldname: "date_from",
+      label: __("Date From"),
+      fieldtype: "Date",
+      // "default": frappe.datetime.now_date(),
+    },
+    {
+      fieldname: "date_to",
+      label: __("Date To"),
+      fieldtype: "Date",
+      // "default": frappe.datetime.now_date(),
+    },
   ],
 };

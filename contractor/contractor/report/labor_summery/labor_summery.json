@@ -1,5 +1,5 @@
 {
- "add_total_row": 1,
+ "add_total_row": 0,
  "columns": [],
  "creation": "2024-05-26 18:04:47.013722",
  "disable_prepared_report": 0,
@@ -9,7 +9,7 @@
  "filters": [],
  "idx": 0,
  "is_standard": "Yes",
- "modified": "2024-05-26 21:01:52.137938",
+ "modified": "2024-06-25 12:06:13.328181",
  "modified_by": "Administrator",
  "module": "Contractor",
  "name": "Labor Summery",

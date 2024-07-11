@@ -123,13 +123,22 @@ def get_cs_data(filters):
 	return data
 
 def get_conditions(filters):
-	conditions = {}
+	conditions = []
+	if filters.get("date_from") or filters.get("date_to"):
+		if filters.date_from and not filters.date_to:
+			conditions.append(["transaction_date",'>=', filters.date_from])
+		elif filters.date_to and not filters.date_from:
+			conditions.append(["transaction_date",'<=', filters.date_to])
+		else:
+			conditions.append(["transaction_date",'between', [filters.date_from, filters.date_to]])
 	for key, value in filters.items():
 		if filters.get(key):
 			if(type(value) == list):
-				conditions[key] = ('in', value)
+				conditions.append([key,'in', value])
+			elif(key == "date_from" or key == "date_to"):
+				None
 			else:
-				conditions[key] = value
+				conditions.append([key,'=', value])
 
 	return conditions
 

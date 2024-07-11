@@ -22,8 +22,10 @@ frappe.ui.form.on("Labor Voucher", {
       frm.add_custom_button(
         "New Invoice",
         function () {
+          
           const newDoc = frappe.model.get_new_doc("Labor Voucher");
           newDoc.laborer = frm.doc.laborer;
+          newDoc.laborer_name = frm.doc.laborer_name;
           newDoc.project = frm.doc.project;
           frappe.set_route("Form", newDoc.doctype, newDoc.name);
         },
@@ -78,7 +80,7 @@ frappe.ui.form.on("Labor Voucher", {
       // );
     }
   },
-
+  
   onload(frm) {
     frm.set_query("laborer", () => {
       return {
@@ -238,7 +240,6 @@ frappe.ui.form.on("Labor Voucher", {
         doc: frm.doc,
         method: "laborer_payments",
         callback: function (response) {
-          console.log(response.message);
           if (response.message.length) {
             frm.clear_table("labor_payments_list");
             response.message.forEach((item) => {
@@ -261,7 +262,6 @@ frappe.ui.form.on("Labor Voucher", {
             frm.refresh_field("total_payments");
             frm.refresh_field("labor_payments_list");
           } else {
-            console.log(response.message, response.message.length);
             frm.set_value("labor_payments_list", []);
             frm.set_value("total_payments", 0);
             frm.refresh_field("total_payments");
@@ -288,7 +288,6 @@ frappe.ui.form.on("Labor Voucher", {
       "accumulated_working_days",
       frm.doc.prev_working_days + frm.doc.current_working_days
     );
-    console.log(frm.doc.current_working_days);
   },
   current_daily_rate(frm) {
     frm.set_value(

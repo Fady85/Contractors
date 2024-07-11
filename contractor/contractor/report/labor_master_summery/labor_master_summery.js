@@ -23,6 +23,18 @@ frappe.query_reports["Labor Master Summery"] = {
       },
     },
     {
+      fieldname: "date_from",
+      label: __("Date From"),
+      fieldtype: "Date",
+      // "default": frappe.datetime.now_date(),
+    },
+    {
+      fieldname: "date_to",
+      label: __("Date To"),
+      fieldtype: "Date",
+      // "default": frappe.datetime.now_date(),
+    },
+    {
       fieldname: "is_master",
       label: __("Is Master"),
       fieldtype: "Check",

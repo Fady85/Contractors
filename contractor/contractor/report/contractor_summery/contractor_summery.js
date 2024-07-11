@@ -28,5 +28,18 @@ frappe.query_reports["Contractor Summery"] = {
       },
       // "default": frappe.datetime.now_date(),
     },
+    {
+      fieldname: "date_from",
+      label: __("Date From"),
+      fieldtype: "Date",
+      // "default": frappe.datetime.now_date(),
+    },
+    {
+      fieldname: "date_to",
+      label: __("Date To"),
+      fieldtype: "Date",
+      // "default": frappe.datetime.now_date(),
+    },
+
   ],
 };

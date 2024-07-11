@@ -111,7 +111,9 @@ fixtures = [
 # Override standard doctype classes
 
 override_doctype_class = {
-	"Payment Entry": "contractor.overrides.custom_payment_entry.CustomPaymentEntry"
+	"Payment Entry": "contractor.overrides.custom_payment_entry.CustomPaymentEntry",
+    "Payroll Entry": "contractor.overrides.custom_payroll_entry.CustomPayrollEntry",
+    # "Employee Advance": "contractor.overrides.custom_advance_payment.CustomEmployeeAdvance",
 };
 
 doctype_js = {

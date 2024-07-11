@@ -22,6 +22,7 @@ def execute(filters=None):
 	data = []
 	for d in cs_data:
 		row = frappe._dict({
+				'name':d.name,
 				'contractor':d.contractor,
 				'invoice_number':d.invoice_number,
 				'transaction_date':d.transaction_date,
@@ -44,13 +45,14 @@ def execute(filters=None):
 
 def get_columns():
 	return [
-		# {
-		# 	'fieldname': 'name',
-		# 	'label': _('Id'),
-		# 	'fieldtype': 'Link',
-		# 	"options": "Contractor Invoice",
-		# 	'width': '200'
-		# },transaction_date
+		{
+			'fieldname': 'name',
+			'label': _('Id'),
+			'fieldtype': 'Link',
+			"options": "Contractor Invoice",
+			'width': '200',
+			'print_hide': 1
+		},
 		{
 			'fieldname': 'contractor',
 			'label': _('Contractor'),
@@ -132,17 +134,31 @@ def get_cs_data(filters):
 	conditions = get_conditions(filters)
 	data = frappe.get_all(
 		doctype='Contractor Invoice',
-		fields=["contractor", "invoice_number", "transaction_date", "project", "subtotal", "grand_total","insurance","discount", "net_total", "total_payments", "due_amount", ],
+		fields=["name","contractor", "invoice_number", "transaction_date",
+		   "project", "subtotal", "grand_total","insurance",
+		   "discount", "net_total", "total_payments", "due_amount",
+			 ],
 		filters=conditions,
 		order_by='invoice_number'
 	)
 	return data
 
 def get_conditions(filters):
-	conditions = {}
+	conditions = []
+	if filters.get("date_from") or filters.get("date_to"):
+		if filters.date_from and not filters.date_to:
+			conditions.append(["transaction_date",'>=', filters.date_from])
+		elif filters.date_to and not filters.date_from:
+			conditions.append(["transaction_date",'<=', filters.date_to])
+		else:
+			conditions.append(["transaction_date",'between', [filters.date_from, filters.date_to]])
+
 	for key, value in filters.items():
 		if filters.get(key):
-			conditions[key] = ('in',value) 
+			if(key == "date_from" or key == "date_to"):
+				None
+			else:
+				conditions.append([key,'in', value])
 
 	return conditions
 
