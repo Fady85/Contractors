@@ -48,8 +48,8 @@ class CustomPaymentEntry(PaymentEntry):
 				invoiceDoc.due_amount = invoiceDoc.due_amount - self.paid_amount;
 				invoiceDoc.save(ignore_permissions=True);
 			except:
-				None;
-		elif(self.party_type == "Employee"):		
+				pass;
+		elif(self.party_type == "Employee"):
 			try:
 				invoiceDoc = frappe.get_last_doc('Labor Voucher', filters={
 						"laborer": self.party,
@@ -57,6 +57,7 @@ class CustomPaymentEntry(PaymentEntry):
 						"docstatus": 1,
 						"is_master": 1,
 					})
+				
 				invoiceDoc.append("labor_payments_list", {
 					"payment_id" : self.name,
 					"date" : self.posting_date,
@@ -69,9 +70,7 @@ class CustomPaymentEntry(PaymentEntry):
 				invoiceDoc.due_amount = invoiceDoc.due_amount - self.paid_amount;
 				invoiceDoc.save(ignore_permissions=True);
 			except Exception as err:
-
-				print(f"message: {err}")
-				None;
+				pass;
 	def before_cancel(self):
 		if(self.party_type == "Supplier"):
 			try:
@@ -93,7 +92,7 @@ class CustomPaymentEntry(PaymentEntry):
 				invoiceDoc.due_amount = invoiceDoc.due_amount - self.paid_amount;
 				invoiceDoc.save(ignore_permissions=True);
 			except:
-				None;
+				pass;
 		elif(self.party_type == "Employee"):	
 			try:
 				invoiceDoc = frappe.get_last_doc('Labor Voucher', filters={
@@ -114,7 +113,7 @@ class CustomPaymentEntry(PaymentEntry):
 				invoiceDoc.due_amount = invoiceDoc.due_amount + self.paid_amount;
 				invoiceDoc.save(ignore_permissions=True);
 			except:
-				None;
+				pass;
 
 	# //////////////////////////////////////////
 	# /////////// end Custom Code /////////////
@@ -294,16 +293,16 @@ def get_paid_amount_and_received_amount(
 				received_amount = paid_amount * doc.get("exchange_rate", 1)
 
 	else:
-		received_amount = abs(outstanding_amount)
+		received_amount = abs(outstanding_amount);
 		if bank_amount:
-			paid_amount = bank_amount
+			paid_amount = bank_amount;
 		else:
 			# if party account currency and bank currency is different then populate paid amount as well
-			paid_amount = received_amount * doc.get("conversion_rate", 1)
+			paid_amount = received_amount * doc.get("conversion_rate", 1);
 			if doc.doctype == "Employee Advance":
-				paid_amount = received_amount * doc.get("exchange_rate", 1)
+				paid_amount = received_amount * doc.get("exchange_rate", 1);
 
-	return paid_amount, received_amount
+	return paid_amount, received_amount;
 
 
 @frappe.whitelist()

@@ -228,6 +228,7 @@ def get_cs_data(filters):
 
 def get_conditions(filters):
 	conditions = []
+	frappe.msgprint(str(filters.get("date_to")))
 	if filters.get("date_from") or filters.get("date_to"):
 		if filters.date_from and not filters.date_to:
 			conditions.append(["transaction_date",'>=', filters.date_from])
