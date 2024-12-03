@@ -29,7 +29,8 @@ class ContractorInvoice(Document):
 		payments = frappe.db.get_list('Payment Entry', 
 				filters={
 				"party": self.contractor,
-				"project": self.project
+				"project": self.project,
+				"docstatus": 1
 			},
 			fields=["name", "posting_date", "paid_from", "bank_account", "paid_amount", "paid_from_account_currency"]
 		);

@@ -358,13 +358,13 @@ frappe.ui.form.on("Labor Voucher", {
   total_payments(frm) {
     frm.set_value(
       "due_amount",
-      frm.doc.total_vouchers_amount + frm.doc.total_payments
+      frm.doc.total_vouchers_amount - frm.doc.total_payments
     );
   },
   total_vouchers_amount(frm) {
     frm.set_value(
       "due_amount",
-      frm.doc.total_vouchers_amount + frm.doc.total_payments
+      frm.doc.total_vouchers_amount - frm.doc.total_payments
     );
   },
   current_days_amount(frm) {
